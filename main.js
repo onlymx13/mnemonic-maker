@@ -23,8 +23,8 @@ var dict = {
   dy: ["change", "why change?"],
   du: ["change", "you change"]
 };
-var repeat;
-var formula = prompt ('formlua:');
+function main() {
+var formula = document.getElementById('formula').value;
 formula = formula.replace(/\-/,"-minus-");
 formula = formula.replace(/=/, "=equals=");
 formula = formula.replace(/\+/,"+plus+");
@@ -38,7 +38,7 @@ do {
     if (!element) return;
     mnemonic += memorize(element) + " ";
   });
-  console.log(mnemonic);
+  document.getElementById('output').innerHTML = mnemonic;
 } while (0);
 function memorize(thing) {
   if (thing === "-") thing = "minus";
@@ -52,4 +52,5 @@ function memorize(thing) {
     return dict[thing].randomElement();
   else
     return thing;
+}
 }
